@@ -1,0 +1,11 @@
+[
+  {
+    "key": "", "label": "Year", "format": null
+  },
+  {
+    "key": "", "label": "Street Address", "format": null
+  },
+  {
+    "key": "", "label": null, "format": "getDollar"
+  }
+]

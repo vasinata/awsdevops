@@ -1,0 +1,39 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Tenants
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+{% for aTenant in PreviousSales[PreviousSalesIndex].Tenants %}
+<blockTable colWidths="100%" style="reset">
+  <blockTableStyle id="CurrentPerformance" parent="reset">
+    <blockTopPadding length="1" />
+    <blockBottomPadding length="1" />
+  </blockTableStyle>
+  {% if aTenant.Name != "" %}
+  <tr>
+    <td>
+      {{aTenant.Name | WrappedAndEscapedBoldText}}
+    </td>
+  </tr>
+  {% endif %}
+  {% if aTenant.Size != "" %}
+  {% capture tenantSize %}
+  Size: {{aTenant.Size | GetNumberRounded}} SF
+  {% endcapture %}
+  <tr>
+    <td>
+      {{tenantSize | WrappedAndEscapedText}}
+    </td>
+  </tr>
+  {% endif %}
+</blockTable>
+{% endfor %}
