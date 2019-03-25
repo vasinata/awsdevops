@@ -1,0 +1,66 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Valuation &amp; Taxes
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable colWidths="50%,50%" style="nvPair">
+
+  {% if Place.TaxYear != "" %}
+  <tr>
+    <td>Tax Year</td>
+    <td>{{Place.TaxYear | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.TaxAmount != "" %}
+  <tr>
+    <td>Tax Amount</td>
+    <td>{{Place.TaxAmount | GetDollarRounded | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.AppraisedValue != "" %}
+  <tr>
+    <td>Appraised Amount</td>
+    <td>{{Place.AppraisedValue | GetDollarRounded | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.AppraisedLandValue != "" %}
+  <tr>
+    <td>Appraised Land Amount</td>
+    <td>{{Place.AppraisedLandValue | GetDollarRounded | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.AssessedYear != "" %}
+  <tr>
+    <td>Assessed Year</td>
+    <td>{{Place.AssessedYear | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.AssessedValue != "" %}
+  <tr>
+    <td>Assessed Amount</td>
+    <td>{{Place.AssessedValue | GetDollarRounded | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.AssessedLandValue != "" %}
+  <tr>
+    <td>Assessed Land Amount</td>
+    <td>{{Place.AssessedLandValue | GetDollarRounded | WrappedAndEscapedText}}</td>
+  </tr>
+  {% endif %}
+
+</blockTable>

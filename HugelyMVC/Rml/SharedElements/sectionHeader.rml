@@ -1,9 +1,0 @@
-<blockTable style="sectionHeader" colWidths="100%">
-  <tr>
-    <td>
-      {{sectionName | Cdata}}
-    </td>
-  </tr>
-</blockTable>
-
-<spacer length="5" />

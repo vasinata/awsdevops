@@ -1,0 +1,30 @@
+﻿<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Financial Details
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable colWidths="100%" style="reset">
+  {% if PreviousSales[PreviousSalesIndex].CommentsSaleDetail != "" %}
+  <tr>
+    <td>
+      {{PreviousSales[PreviousSalesIndex].CommentsSaleDetail | WrappedAndEscapedText}}
+    </td>
+  </tr>
+  {% endif %}
+  {% if PreviousSales[PreviousSalesIndex].CommentsFinancingDetail != "" %}
+  <tr>
+    <td>
+      {{PreviousSales[PreviousSalesIndex].CommentsFinancingDetail | WrappedAndEscapedText}}
+    </td>
+  </tr>
+  {% endif %}
+</blockTable>

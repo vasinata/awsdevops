@@ -1,0 +1,102 @@
+
+{{sectionHeader}}
+
+{% assign processedSections = 0 %}
+{% assign totalSubSections = subSections | Size %}
+
+
+{% if HasMarketContext %}
+{% assign processedSections = processedSections | Plus: 1 %}
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["marketContext"]}}   
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+{% assign processedSections = processedSections | Plus: 1 %}
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["propertyAttributesAndStructurals"]}}   
+    </td>
+  </tr>
+</blockTable>
+
+{% if HasAffPlace %}
+{% assign processedSections = processedSections | Plus: 1 %}
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["affPlace"]}}   
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+{% if totalSubSections > processedSections %}
+<blockTable  colWidths="50%,50%" style="layout">
+  <tr>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}}  
+		  {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}} 		  
+		  {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+{% if totalSubSections > processedSections %}
+<blockTable  colWidths="50%,50%" style="layout">
+  <tr>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}} 		  
+          {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}} 		  
+          {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+{% if totalSubSections > processedSections %}
+<blockTable  colWidths="50%,50%" style="layout">
+  <tr>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}} 		  
+	      {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+    <td>
+      {% if totalSubSections > processedSections %}
+		  {% assign aKey = subSections[processedSections] %}
+          {{subSectionRml[aKey]}} 		  
+          {% assign processedSections = processedSections | Plus: 1 %}
+      {% endif %}
+    </td>
+  </tr>
+</blockTable>	
+{% endif %}
+
+<condPageBreak height="10in"/>

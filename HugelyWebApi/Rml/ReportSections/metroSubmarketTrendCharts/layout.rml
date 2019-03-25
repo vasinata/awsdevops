@@ -1,0 +1,32 @@
+{{sectionHeader}}
+
+
+
+{% if HasMetroSubmarketTrendChartData %}
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["askingRentGrowth"]}}   
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["vacancyRateGrowth"]}}   
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable  colWidths="100%" style="layout">
+  <tr>
+    <td>
+      {{subSectionRml["inventory"]}}   
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+<condPageBreak height="10in"/>

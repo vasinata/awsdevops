@@ -1,0 +1,131 @@
+﻿<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Affordable Details
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable style="layout">
+  <tr>
+    <td>
+      <blockTable style="nvPair">
+        {% if AffPlace.HudIdNumber != "" %}
+        <tr>
+          <td>HUD ID Number(s)</td>
+          <td>{{ AffPlace.HudIdNumber }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeLihtcUnits != "" %}
+        <tr>
+          <td>LIHTC Units</td>
+          <td>{{ Place.SizeLihtcUnits | GetNumberRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeMarketRateUnits != "" %}
+        <tr>
+          <td>Market Rate Units</td>
+          <td>{{ Place.SizeMarketRateUnits | GetNumberRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeSection8Units != "" %}
+        <tr>
+          <td>Section 8 Units</td>
+          <td>{{ Place.SizeSection8Units | GetNumberRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeOtherUnits != "" %}
+        <tr>
+          <td>Other Units</td>
+          <td>{{ Place.SizeOtherUnits | GetNumberRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.UnitDesignations != "" %}
+        <tr>
+          <td>Unit Designations</td>
+          <td>{{ AffPlace.UnitDesignations | GetNumberRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.Section8ContractStartJulian != "" %}
+        <tr>
+          <td>Section 8 Contract Start</td>
+          <td>{{ AffPlace.Section8ContractStartJulian | GetMonthDayYearFromJulian | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.Section8ContractEndJulian != "" %}
+        <tr>
+          <td>Section 8 Contract End</td>
+          <td>{{ AffPlace.Section8ContractEndJulian | GetMonthDayYearFromJulian | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+      </blockTable>
+    </td>
+    <td>
+      <blockTable style="nvPair">
+
+        {% if AffPlace.BuildingSubsidies != "" %}
+        <tr>
+          <td>Building Subsidies</td>
+          <td>{{ AffPlace.BuildingSubsidies| WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.TaxRemaining != "" %}
+        <tr>
+          <td>Years Remaining In Compliance</td>
+          <td>{{ Place.TaxRemaining| WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.Waitlist != "" %}
+        <tr>
+          <td>Waitlist</td>
+          <td>{{ AffPlace.Waitlist | YesNoFormat  }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.WaitlistLength != "" %}
+        <tr>
+          <td>Waitlist Length</td>
+          <td>{{ AffPlace.WaitlistLength | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.MinimumEligibleIncome != "" %}
+        <tr>
+          <td>Minimum Eligible Income</td>
+          <td>{{ AffPlace.MinimumEligibleIncome | GetDollarRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.MaximumEligibleIncome != "" %}
+        <tr>
+          <td>Maximum Eligible Income</td>
+          <td>{{ AffPlace.MaximumEligibleIncome | GetDollarRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if AffPlace.HeatSource != "" %}
+        <tr>
+          <td>Heat Source</td>
+          <td>{{ AffPlace.HeatSource | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>

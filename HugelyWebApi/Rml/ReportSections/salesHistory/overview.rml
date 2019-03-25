@@ -1,0 +1,126 @@
+﻿<blockTable style="spacedLayout">
+  <tr>
+    <td>
+	
+      <blockTable colWidths="25,500">
+        <blockTableStyle id="saleHistory">
+          <blockBackground colorName = "ReisColor" start="0,0" stop="0,0" />
+          <blockFont name="Helvetica-Bold" size="14" start="0,0" stop="-1,-1" />
+          <blockTextColor colorName="ReisColor" start="-1,-1" stop="-1,-1" />
+          <blockTextColor colorName="White" start="0,0" stop="0,0" />
+          <blockAlignment value ="CENTER" start="0,0" stop="0,0" />
+        </blockTableStyle>
+        <tr>
+          <td>
+            {{ PreviousSalesIndex | Plus: 1 }}
+          </td>
+          <td>
+            Sale On {{ PreviousSales[PreviousSalesIndex].SaleDateJulian | GetDateFromJulian }}
+          </td>
+        </tr>
+      </blockTable>
+	  
+    </td>
+  </tr>
+</blockTable>
+
+
+      
+   
+<blockTable colWidths="100%" style="subSectionHeader">
+  <tr>
+    <td>
+      Overview
+    </td>
+  </tr>
+</blockTable>
+
+
+
+<blockTable style="layout">
+  <tr>
+    <td>
+      <blockTable style="nvPair">
+
+        {% if PreviousSales[PreviousSalesIndex].SalePrice != "" %}
+        <tr>
+          <td>Sale Amount</td>
+          <td>{{ PreviousSales[PreviousSalesIndex].SalePrice | GetDollarRounded }}</td>
+        </tr>
+        {% endif %}
+
+        {% if PreviousSales[PreviousSalesIndex].PricePerSqft != "" or PreviousSales[PreviousSalesIndex].PricePerUnit != "" %}
+        <tr>
+          <td>Sale Price</td>
+          <td>
+            {% if PreviousSales[PreviousSalesIndex].PricePerSqft != "" %}
+              {{ PreviousSales[PreviousSalesIndex].PricePerSqft | GetDollar }} (PSF)
+            {% endif %}
+            {% if PreviousSales[PreviousSalesIndex].PricePerUnit != "" %}
+              {{ PreviousSales[PreviousSalesIndex].PricePerUnit | GetDollar }} (Unit)
+            {% endif %}
+          </td>
+        </tr>
+        {% endif %}
+
+        {% if PreviousSales[PreviousSalesIndex].Vacancy != "" %}
+        <tr>
+          <td>Vacancy At Sale</td>
+          <td>{{ PreviousSales[PreviousSalesIndex].Vacancy | CalcPercentToOneDecimal }}</td>
+        </tr>
+        {% endif %}
+
+
+        {% if  PreviousSales[PreviousSalesIndex].SalePrice == "" and PreviousSales[PreviousSalesIndex].PricePerSqft == "" or PreviousSales[PreviousSalesIndex].PricePerUnit == "" and PreviousSales[PreviousSalesIndex].Vacancy == "" %}
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        {% endif %}
+
+
+      </blockTable>
+    </td>
+	<td>
+    <blockTable style="nvPair">
+
+      {% if PreviousSales[PreviousSalesIndex].InterestPurchased != "" %}
+      <tr>
+        <td>Interest Purchased</td>
+        <td>{{ PreviousSales[PreviousSalesIndex].InterestPurchased | CalcPercentToOneDecimal  }}</td>
+      </tr>
+      {% endif %}
+
+      {% if PreviousSales[PreviousSalesIndex].BuyerSellerRelationship != "" %}
+      <tr>
+        <td>Transaction Type</td>
+        <td>{{ PreviousSales[PreviousSalesIndex].BuyerSellerRelationship }}</td>
+      </tr>
+      {% endif %}
+
+      {% if PreviousSales[PreviousSalesIndex].DeedReference != "" %}
+      <tr>
+        <td>Deed Reference</td>
+        <td>{{ PreviousSales[PreviousSalesIndex].DeedReference }}</td>
+      </tr>
+      {% endif %}
+
+      {% if PreviousSales[PreviousSalesIndex].ScRecordType != "" %}
+      <tr>
+        <td>Sale Status</td>
+        <td>{{ PreviousSales[PreviousSalesIndex].ScRecordType | FormatSaleStatus }}</td>
+      </tr>
+      {% endif %}
+
+
+      {% if PreviousSales[PreviousSalesIndex].InterestPurchased == "" and PreviousSales[PreviousSalesIndex].BuyerSellerRelationship == "" and PreviousSales[PreviousSalesIndex].DeedReference == "" and PreviousSales[PreviousSalesIndex].ScRecordType == "" %}
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      {% endif %}
+
+    </blockTable>
+    </td>
+  </tr>
+</blockTable>

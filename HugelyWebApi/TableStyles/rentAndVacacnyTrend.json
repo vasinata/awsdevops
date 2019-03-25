@@ -1,0 +1,23 @@
+[
+  {
+    "key": "", "label": "Year", "format": null
+  },
+  {
+    "key": "", "label": null, "format": "getDollar"
+  },
+  {
+    "key": "", "label": null, "format": "getDollar"
+  },
+  {
+    "key": "", "label": null, "format": "getDollar"
+  },
+  {
+    "key": "", "label": null, "format": "addPercent"
+  },
+  {
+    "key": "", "label": null, "format": "addPercent"
+  },
+  {
+    "key": "", "label": null, "format": "addPercent"
+  },
+]
