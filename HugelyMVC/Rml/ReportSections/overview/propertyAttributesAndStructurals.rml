@@ -1,0 +1,252 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Property Attributes &amp; Structurals
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable style="layout">
+  <tr>
+    <td>
+      <blockTable style="nvPair">
+
+        {% if Place.Submarket != "" %}
+        <tr>
+          <td>Submarket</td>
+          <td>{{Place.Submarket | AddSpaceToSlash | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.Msa != "" %}
+        <tr>
+          <td>Metro</td>
+          <td>{{Place.Msa | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.County != "" %}
+        <tr>
+          <td>County</td>
+          <td>{{Place.County | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.PropertyType != "" %}
+        <tr>
+          <td>Reis Property Type</td>
+          <td>{{Place.PropertyType | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.YearBuilt != "" %}
+        <tr>
+          <td>Year Built</td>
+          <td>{{Place.YearBuilt | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.YearRenovated != "" %}
+        <tr>
+          <td>Year Renovated</td>
+          <td>{{Place.YearRenovated | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.BuildingClass != "" %}
+        <tr>
+          <td>Class</td>
+          <td>{{Place.BuildingClass | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.Zoning != "" %}
+        <tr>
+          <td>Zoning</td>
+          <td>{{Place.Zoning | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.ConstructionStatus != "" %}
+        <tr>
+          <td>Construction Status</td>
+          <td>{{Place.ConstructionStatus | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.ExpectedCompletionDateJulian != "" %}
+        <tr>
+          <td>Expected Completion Date</td>
+          <td>{{Place.ExpectedCompletionDateJulian | GetMonthDayYearFromJulian | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.CeilingHeight != "" %}
+        <tr>
+          <td>Ceiling Height</td>
+          <td>{{Place.CeilingHeight | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.NumLoadingDocks != "" %}
+        <tr>
+          <td>Loading Docks</td>
+          <td>{{Place.NumLoadingDocks | WrappedAndEscapedText }}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.HasDriveInDoors != "" %}
+        <tr>
+          <td>Drive-In Doors</td>
+          <td>{{Place.HasDriveInDoors | YesNoFormat }}{% if Place.NumDriveInDoors != "" %} ({{Place.NumDriveInDoors }}){% endif %}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.HasRailDoors != "" %}
+        <tr>
+          <td>Rail Doors</td>
+          <td>{{Place.HasRailDoors | YesNoFormat }}{% if Place.NumRailDoors != "" %} ({{Place.NumRailDoors }}){% endif %}</td>
+        </tr>
+        {% endif %}
+        
+        {% if Place.Spaces != "" %}
+        <tr>
+          <td>Spaces</td>
+          <td>{{ Place.Spaces | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+      </blockTable>
+    </td>
+    <td>
+      <blockTable style="nvPair">
+        {% if Place.Buildings != "" %}
+        <tr>
+          <td>Buildings</td>
+          <td>{{Place.Buildings | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.Floors != "" %}
+        <tr>
+          <td>Stories</td>
+          <td>{{Place.Floors | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+        
+        {% if Place.SizeSqft != "" %}
+        <tr>
+          <td>Building Size (SF)</td>
+          <td>{{Place.SizeSqft | GetNumberRounded  | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeUnit != "" %}
+        <tr>
+          <td>Building Size (Units)</td>
+          <td>{{Place.SizeUnit | GetNumberRounded | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeBed != "" %}
+        <tr>
+          <td>Building Size (Beds)</td>
+          <td>{{Place.SizeBed | GetNumberRounded | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeRoom != "" %}
+        <tr>
+          <td>Building Size (Rooms)</td>
+          <td>{{Place.SizeRoom | GetNumberRounded | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+        
+        {% if Place.AnchorSizeSqft != "" %}
+        <tr>
+          <td>Anchor Size (SF)</td>
+          <td>{{Place.AnchorSizeSqft | GetNumberRounded  | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.NonAnchorSizeSqft != "" %}
+        <tr>
+          <td>Non Anchor Size (SF)</td>
+          <td>{{Place.NonAnchorSizeSqft | GetNumberRounded  | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeLotSqft != "" %}
+        <tr>
+          <td>Lot Size (SF)</td>
+          <td>{{Place.SizeLotSqft | GetNumberRounded | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.SizeLotAcre != "" %}
+        <tr>
+          <td>Lot Size (Acres)</td>
+          <td>{{Place.SizeLotAcre | GetFormattedNumber | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.BuildingImprovements != "" %}
+        <tr>
+          <td>Building Improvements</td>
+          <td>{{Place.BuildingImprovements | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.LocationOverview != "" %}
+        <tr>
+          <td>Location Overview</td>
+          <td>{{Place.LocationOverview | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.UtilitiesSewer != "" %}
+        <tr>
+          <td>Sewer</td>
+          <td>{{Place.UtilitiesSewer | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.UtilitiesWater != "" %}
+        <tr>
+          <td>Water</td>
+          <td>{{Place.UtilitiesWater | WrappedAndEscapedText}}</td>
+        </tr>
+        {% endif %}
+        
+        {% if Place.IsOpportunityZone != "" %}
+        <tr>
+          <td>Opportunity Zone</td>
+          <td>{{Place.IsOpportunityZone | YesNoFormat}}</td>
+        </tr>
+        {% endif %}
+
+        {% if Place.CensusTract != "" %}
+        <tr>
+          <td>Census Tract</td>
+          <td>{{ Place.CensusTract }}</td>
+        </tr>
+        {% endif %}
+
+        <!-- ~DC~ HACKED so it doesn't fail when other fields are empty-->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </blockTable>
+    </td>
+
+  </tr>
+</blockTable>

@@ -1,0 +1,147 @@
+﻿
+<blockTable style="spacedLayout">
+  
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            <![CDATA[{{ PreflightMarketMonitor.MsaName }} - {{ PreflightMarketMonitor.SubmarketName }} Performance]]>
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable style="spacedLayout" colWidths="45%,5%,50%">
+  <tr>
+    <td>
+      <blockTable style="dataTable3">
+        <tr>
+          <td></td>
+          <td>Rank</td>
+          <td>Total Submarkets</td>
+          <td>% Rank</td>
+        </tr>
+        <tr>
+          <td>{{ PreflightMarketMonitor.MsaName | WrappedAndEscapedBoldText }}</td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreMsaRank }}</td>
+          <td>{{ PreflightMarketMonitor.NumSubmarketsMsa }}</td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreMsaPercentile | CaclPercentRounded }}</td>
+        </tr>
+        <tr>
+          <td><para style="boldText"><![CDATA[Zions Markets]]></para></td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreZionsRank | NaIfBlank }}</td>
+          <td>{{ PreflightMarketMonitor.NumSubmarketsZion | NaIfBlank }}</td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreZionsPercentile | CaclPercentRoundedNaIfBlank }}</td>
+        </tr>
+        <tr>
+          <td><para style="boldText"><![CDATA[National]]></para></td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreNationalRank }}</td>
+          <td>{{ PreflightMarketMonitor.NumSubmarkets }}</td>
+          <td>{{ PreflightMarketMonitor.CompositeScoreNationalPercentile | CaclPercentRounded }}</td>
+        </tr>
+      </blockTable>
+
+    </td>
+    <td></td>
+    <td>
+
+        <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesDoubleScrunch">{{submarketStaticMapImageBytes}}</plugInFlowable>
+
+
+    </td>
+  </tr>
+</blockTable>
+      
+<blockTable style="spacedLayout">
+  <tr>
+    <td>  
+      
+      <blockTable style="dataTable2">
+      <tr>
+        <td>
+          <para style="boldTextCenteredWhite">
+            <![CDATA[{{ PreflightMarketMonitor.SubmarketName }} Submarket]]>
+          </para>
+        </td>
+        <td>
+          <para style="boldTextCenteredWhite">
+            Vacancy Rate
+            <br />
+          </para>
+          <para style="boldTextCenteredWhiteSmall">
+            {{ PreflightMarketMonitor.VacancyDateLabel }}
+          </para>
+        </td>
+        <td>
+          <para style="boldTextCenteredWhite">
+            YOY Effective Rent Growth
+            <br />
+          </para>
+          <para style="boldTextCenteredWhiteSmall">
+            {{ PreflightMarketMonitor.EffectiveRentGrowth1YearDateLabel }}
+          </para>
+        </td>
+        <td>
+          <para style="boldTextCenteredWhite">
+            Inventory Growth 2yr CAGR
+            <br />
+          </para>
+          <para style="boldTextCenteredWhiteSmall">
+            {{ PreflightMarketMonitor.InventoryGrowth2YearDateLabel }}
+          </para>
+        </td>
+        <td>
+          <para style="boldTextCenteredWhite">
+            St. Dev. Of 3Yr Value Change
+            <br />
+          </para>
+          <para style="boldTextCenteredWhiteSmall">
+            {{ PreflightMarketMonitor.ValueChangeStDev3YearDateLabel }}
+          </para>
+        </td>
+        <td>
+          <para style="boldTextCenteredWhite">
+            Effective Revenue Growth 2yr CAGR
+            <br />
+          </para>
+          <para style="boldTextCenteredWhiteSmall">
+            {{ PreflightMarketMonitor.EffectiveRevenueGrowth2YearDateLabel }}
+          </para>
+        </td>
+      </tr>
+      <tr>
+        <td>Metrics</td>
+        <td>{{ PreflightMarketMonitor.Vacancy | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRentGrowth1Year | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.InventoryGrowth2Year | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.ValueChangeStDev3Year | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRevenueGrowth2Year | CaclPercentRounded }}</td>
+      </tr>
+      <tr>
+        <td>Rank</td>
+        <td>{{ PreflightMarketMonitor.VacancyRank }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRentGrowth1YearRank }}</td>
+        <td>{{ PreflightMarketMonitor.InventoryGrowth2YearRank }}</td>
+        <td>{{ PreflightMarketMonitor.ValueChangeStDev3YearRank }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRevenueGrowth2YearRank }}</td>
+      </tr>
+      <tr>
+        <td>
+          National % Rank
+        </td>
+        <td>{{ PreflightMarketMonitor.VacancyPercentile | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRentGrowth1YearPercentile | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.InventoryGrowth2YearPercentile | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.ValueChangeStDev3YearPercentile | CaclPercentRounded }}</td>
+        <td>{{ PreflightMarketMonitor.EffectiveRevenueGrowth2YearPercentile | CaclPercentRounded }}</td>
+      </tr>
+
+    </blockTable>
+      
+    </td>
+  </tr>
+</blockTable>

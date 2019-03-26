@@ -1,0 +1,25 @@
+﻿<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Amenities
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable style="nvPair">
+
+{% for amenity in Amenities %}
+  <tr>
+    <td>{{ amenity.AmenitiesDescription }}</td>
+    <td>{{ amenity.Amenities | WrappedAndEscapedText}}</td>
+  </tr>
+{% endfor %}
+
+</blockTable>

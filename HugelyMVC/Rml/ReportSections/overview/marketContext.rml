@@ -1,0 +1,22 @@
+﻿<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            Market Context
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable style="layout">
+  <tr>
+    <td>
+	{{ MarketContext | WrappedAndEscapedText }}
+	</td>
+  </tr>
+</blockTable>

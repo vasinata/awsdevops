@@ -1,0 +1,65 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+          Most Recent Sale
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+
+<blockTable colWidths="50%,50%" style="nvPair">
+
+  <tr>
+    <td>Sale Date</td>
+    {% if Place.SaleDateJulian != "" %}
+    <td>{{ Place.SaleDateJulian | GetMonthDayYearFromJulian | WrappedAndEscapedText }}</td>
+    {% else %}
+    <td>&mdash;</td>
+    {% endif %}
+  </tr>
+  
+  <tr>
+    <td>Sale Amount</td>
+    {% if Place.SalePrice != "" %}
+    <td>{{ Place.SalePrice | GetDollarRounded | WrappedAndEscapedText }}</td>
+    {% else %}
+    <td>&mdash;</td>
+    {% endif %}
+  </tr>
+  
+
+  {% if Place.Buyer != "" %}
+  <tr>
+    <td>Buyer</td>
+    <td>{{ Place.Buyer | WrappedAndEscapedText }}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.BuyerPhone != "" %}
+  <tr>
+    <td></td>
+    <td>{{ Place.BuyerPhone | WrappedAndEscapedText }}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.Seller != "" %}
+  <tr>
+    <td>Seller</td>
+    <td>{{ Place.Seller | WrappedAndEscapedText }}</td>
+  </tr>
+  {% endif %}
+
+  {% if Place.SellerPhone != "" %}
+  <tr>
+    <td></td>
+    <td>{{ Place.SellerPhone | WrappedAndEscapedText }}</td>
+  </tr>
+  {% endif %}
+
+</blockTable>

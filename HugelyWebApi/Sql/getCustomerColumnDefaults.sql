@@ -1,1 +1,0 @@
-﻿SELECT columnID FROM HugelySeldom.dbo.customerColumnDefaults WHERE customerID = @customerId
