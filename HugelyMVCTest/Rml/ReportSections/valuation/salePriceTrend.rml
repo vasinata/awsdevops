@@ -1,0 +1,21 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+            {{SalePriceTrendChartTitle | Cdata}}
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable colWidths="100%" style="layout" >
+  <tr>
+    <td>
+      <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesDoubleScrunch"><![CDATA[{{salePriceTrendChart}}]]></plugInFlowable>
+    </td>
+  </tr>
+</blockTable>

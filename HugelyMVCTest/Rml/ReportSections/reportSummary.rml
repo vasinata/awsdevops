@@ -1,0 +1,150 @@
+﻿{{sectionHeader}}
+
+<spacer length="10" />
+
+<blockTable  colWidths="100%" style="spacedLayout">
+  <tr>
+    <td>
+		<blockTable style="dataTable">
+		  <tr>
+			<td>
+			  <para style="boldTextCenteredWhite">
+				Search Parameters
+			  </para>
+			</td>
+			<td></td>
+		  </tr>
+		  {% for aSearchParameter in SearchParameterList %}
+		  <tr>
+		    <td>
+		      {{ aSearchParameter.Key | Cdata}}
+		    </td>
+		    <td>
+		      {{aSearchParameter.Value}}
+		    </td>
+		  </tr>
+		  {% endfor %}
+		  
+		</blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable  colWidths="100%" style="spacedLayout">
+  <tr>
+    <td>
+	<blockTable>
+	  <blockTableStyle id="sectorCount" parent="dataTable">
+		<blockAlignment value="CENTER" start="1,1" stop="-1,-1"/>
+	  </blockTableStyle>
+	  <tr>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			Sector
+		  </para>
+		</td>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			Property Count
+		  </para>
+		</td>
+	  </tr>
+	
+	  {% for aSectorCount in SectorCountList %}
+	  <tr>
+	    <td>
+	      {{aSectorCount.Key | Cdata}}
+	    </td>
+	    <td>
+	      {{aSectorCount.Value}}
+	    </td>
+	  </tr>
+	  {% endfor %}
+	</blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+<blockTable  colWidths="100%" style="spacedLayout">
+<tr>
+    <td>
+	<blockTable style="dataTable">
+	  <tr>
+		<td>
+		  <para style="boldTextCenteredWhite">
+        
+		  </para>
+		</td>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			Low
+		  </para>
+		</td>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			Mean
+		  </para>
+		</td>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			Median
+		  </para>
+		</td>
+		<td>
+		  <para style="boldTextCenteredWhite">
+			High
+		  </para>
+		</td>
+	  </tr>
+
+	  {% for aFieldStatistics in FieldStatisticsList %}
+	  
+	  {% comment %}
+	  // THERE MUST BE A BETTER WAY TO DO THIS? I CANT FIGURE OUT HOW TO DEREFERENCE aFieldStatistics.Value.Format AND PASS DIRECTLY INTO A FILTER
+	  {% endcomment %}
+
+	  {% if aFieldStatistics.Value.Format == 'getNumber' %}
+	  <tr>
+	    <td>{{aFieldStatistics.Key | Cdata}}</td>
+	    <td>{{aFieldStatistics.Value.Low | GetNumber}}</td>
+	    <td>{{aFieldStatistics.Value.Mean | GetNumber}}</td>
+	    <td>{{aFieldStatistics.Value.Median | GetNumber}}</td>
+	    <td>{{aFieldStatistics.Value.High | GetNumber}}</td>
+	  </tr>
+	  {% elsif aFieldStatistics.Value.Format == 'GetNumberRounded' %}
+	  <tr>
+	    <td>{{aFieldStatistics.Key}}</td>
+	    <td>{{aFieldStatistics.Value.Low | GetNumberRounded}}</td>
+	    <td>{{aFieldStatistics.Value.Mean | GetNumberRounded}}</td>
+	    <td>{{aFieldStatistics.Value.Median | GetNumberRounded}}</td>
+	    <td>{{aFieldStatistics.Value.High | GetNumberRounded}}</td>
+	  </tr>
+	  {% elsif aFieldStatistics.Value.Format == 'getDollarRounded' %}
+	  <tr>
+	    <td>{{aFieldStatistics.Key}}</td>
+	    <td>{{aFieldStatistics.Value.Low | GetDollarRounded}}</td>
+	    <td>{{aFieldStatistics.Value.Mean | GetDollarRounded}}</td>
+	    <td>{{aFieldStatistics.Value.Median | GetDollarRounded}}</td>
+	    <td>{{aFieldStatistics.Value.High | GetDollarRounded}}</td>
+	  </tr>
+	  {% endif %}
+
+	  {% endfor %}
+
+	  
+	</blockTable>
+	</td>
+  </tr>
+</blockTable>
+
+<blockTable colWidths="100%" style="spacedLayout">
+  <tr>
+    <td>
+      <para style="footnote">
+		*Aggregate statistics based on availability of property level data
+	  </para>
+	</td>
+	</tr>
+</blockTable>
+
+<condPageBreak height="10in"/>

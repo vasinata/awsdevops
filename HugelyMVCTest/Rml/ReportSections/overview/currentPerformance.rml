@@ -1,0 +1,113 @@
+<blockTable style="spacedLayout">
+  <tr>
+    <td>
+      <blockTable colWidths="100%" style="subSectionHeader">
+        <tr>
+          <td>
+          Current Performance
+          </td>
+        </tr>
+      </blockTable>
+    </td>
+  </tr>
+</blockTable>
+
+{% if Place.PrimaryCareType != "" %}
+<blockTable style="reset">
+  <blockTableStyle id="PrimaryCareType" parent="reset">
+    <blockTopPadding length="1" />
+    <blockBottomPadding length="1" />
+    <blockAlignment value="CENTER" />
+  </blockTableStyle>
+  <tr>
+    <td>
+      <para>
+        <b>Primary Care Type</b> | {{Place.PrimaryCareType}}</para>
+    </td>
+  </tr>
+</blockTable>
+{% endif %}
+
+<blockTable colWidths="50%,50%" style="reset">
+  <blockTableStyle id="CurrentPerformance" parent="reset">
+    <blockFont name="Helvetica-Bold" start="0,0" stop="-1,0" />
+    <blockTopPadding length="1" />
+    <blockBottomPadding length="1" />
+    <blockAlignment value="CENTER" />
+  </blockTableStyle>
+
+  <tr>
+    <td>
+      {% if Place.RentPsf != "" %}
+      {{ Place.RentPsf | GetDollar }}
+      {% endif %}
+      {% if Place.RentPerUnit != "" %}
+      {{ Place.RentPerUnit | GetDollarRounded) }}
+      {% endif %}
+    </td>
+    <td>
+      {% if Place.Vacancy != "" %}
+      {{ Place.Vacancy | CalcPercentToOneDecimal }}
+      {% endif %}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {% if Place.RentPsf != "" %}
+      Asking Rent (PSF)
+      {% endif %}
+      {% if Place.RentPerUnit != "" %}
+      Asking Rent (Per Unit)
+      {% endif %}
+    </td>
+    <td>Vacancy Rate</td>
+  </tr>
+  {% if Place.RentChange != "" or Place.VacancyChange != "" %}
+  <tr>
+      <td>
+        {% if Place.RentChange != "" %}
+          {% assign RentChange = Place.RentChange | ToNumber %}
+          {% if RentChange > 0 %}
+            <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesQuadrupleScrunch">{{arrowUpGreen}}</plugInFlowable>
+          {% else %}
+            <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesQuadrupleScrunch">{{arrowDownRed}}</plugInFlowable>
+          {% endif %}
+        {% endif %}
+      </td>
+      <td>
+        {% if Place.VacancyChange != "" %}
+          {% assign VacancyChange = Place.VacancyChange | ToNumber %}
+          {% if VacancyChange > 0 %}
+            <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesQuadrupleScrunch">{{arrowUpRed}}</plugInFlowable>
+          {% else %}
+            <plugInFlowable module="reis.graphs.ImageFromBytes" function="FlowableImageFromBytesQuadrupleScrunch">{{arrowDownGreen}}</plugInFlowable>
+          {% endif %}
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {% if Place.RentChange != "" %}
+        {{ Place.RentChange | AddPercent }}
+        {% endif %}
+      </td>
+      <td>
+        {% if Place.VacancyChange != "" %}
+        {{ Place.VacancyChange | CalcBasisPoint }} (BPS)
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {% if Place.RentChange != "" and Place.PrevQuarterQuarter != "" %}
+        (since Q{{Place.PrevQuarterQuarter}} {{Place.PrevQuarterYear}})
+        {% endif %}
+      </td>
+      <td>
+        {% if Place.VacancyChange != "" and Place.PrevQuarterQuarter != "" %}
+        (since Q{{Place.PrevQuarterQuarter}} {{Place.PrevQuarterYear}})
+        {% endif %}
+      </td>
+    </tr>
+  {% endif %}
+</blockTable>
