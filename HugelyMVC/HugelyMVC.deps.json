@@ -4383,7 +4383,7 @@
     "Microsoft.AspNetCore.Mvc/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-59NchgRWqXmXdmY8W4O6qda4odf0Fc5UgVsUj57Nr5IMMQ2MKNDMeoBE6VjDQiNP5Oteu15qj3FfrbuwwgYa1Q==",
+      "sha512": "sha512-UV8F8KXbGtTWA4Gb0McgVtw5hZlYnVU2xI/1oinnqBydIfxdmtBXmXq5eDiq6idlnf+HGYSkY3r+9JfFHpPNTA==",
       "path": "microsoft.aspnetcore.mvc/2.2.0",
       "hashPath": "microsoft.aspnetcore.mvc.2.2.0.nupkg.sha512"
     },
@@ -4600,7 +4600,7 @@
     "Microsoft.AspNetCore.Server.Kestrel/2.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LimbppDQcKV67RjHCTqLbogf/f04L3Cd5YboUF67M/mcmZg2z7mpN2XWgXLoixejTAVsSr8s+Y2JiZDX6sLwfA==",
+      "sha512": "sha512-mCsvD1pg/ToJq4jCiexzRIxQTOxJ1meU4cV7CCCYPu60RKjoa2/RqqT+NEdR0Z7wdxatSjecR6U3qY0Mg4wR7g==",
       "path": "microsoft.aspnetcore.server.kestrel/2.2.0",
       "hashPath": "microsoft.aspnetcore.server.kestrel.2.2.0.nupkg.sha512"
     },
@@ -4705,7 +4705,7 @@
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "sha512-uGDnaF+2zOqrUHivsbkoaHWyR5+MapWRqFzcKyVdWA/nNPgldY7ALIk/wcmO/FgS7RM0PggDWOz7FfeR8QhlOw==",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
